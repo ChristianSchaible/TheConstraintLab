@@ -5,13 +5,101 @@ import Container from "@components/Container.astro";
 import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
 import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
+import RandomImage from '../components/RandomIcon.astro';
+import RandomQuote from '../components/Randomrules.astro';
+import RandomComp from '../components/RandomComp.astro';
 ---
 
 <Layout title="Astro Starter">
-  <Container>
-    <Image src={AstroLogo} alt="" />
-    <h1>a simple Astro Starter Kit</h1>
-    <SampleComponent text="This is a sample component!" />
-    <SampleMarkdown />
-  </Container>
+  <div class="page">
+    <div class="titlequote">
+      <h1 class="np">The New Paltz <strong>Contraint Lab.</strong></h1> 
+       <RandomQuote />
+
+    </div>
+    
+    <div class="imagecomp">
+
+ <RandomComp />
+ <div class="buttonimage">
+
+   <RandomImage />
+<button onclick="location.reload()">Roll Again</button>
+ </div>
+   
+    </div>
+    
+ 
+  </div>
 </Layout>
+<style>
+  .imagecomp {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+  }
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: 2rem;
+  justify-content: center;
+  gap: 2rem;
+    transition: all 0.3s linear(0, -0.001 1.4%, -0.005 2.9%, -0.02 6.1%, -0.042 9.3%, -0.107 17.7%, -0.123 20.2%, -0.132 22.4%, -0.138 24.9%, -0.135 27.3%, -0.126 29.5%, -0.108 31.7%, -0.092 33.1%, -0.074 34.4%, -0.025 37%, 0.037 39.5%, 0.116 42%, 0.204 44.3%, 0.305 46.5%, 0.411 48.5%, 0.644 52.5%, 0.733 54.3%, 0.812 56.1%, 0.895 58.3%, 0.966 60.6%, 1.023 62.9%, 1.069 65.3%, 1.103 67.8%, 1.116 69.1%, 1.126 70.5%, 1.133 71.9%, 1.137 73.3%, 1.138 74.8%, 1.136 76.3%, 1.127 78.9%, 1.111 81.7%, 1.091 84.5%, 1.04 91%, 1.018 94.2%, 1.005 97.2%, 1.001 98.6%, 1);
+}
+h1 {
+  line-height: normal;
+    background-color: blue;
+    color: white;
+    border: 2px solid var(--color-accent);
+    padding: 1rem;
+    border-radius: 20px;
+    font-size: 5rem;
+    width: 50vw;
+    height: fit-content;
+      transition: all 0.3s, color 0.3s;
+  }
+h1:hover {
+    background-color: white;
+    color: blue;
+    transition: all 0.3s, color 0.3s;
+    border-radius: 30px;
+    scale: 1.05;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s linear(0, -0.001 1.4%, -0.005 2.9%, -0.02 6.1%, -0.042 9.3%, -0.107 17.7%, -0.123 20.2%, -0.132 22.4%, -0.138 24.9%, -0.135 27.3%, -0.126 29.5%, -0.108 31.7%, -0.092 33.1%, -0.074 34.4%, -0.025 37%, 0.037 39.5%, 0.116 42%, 0.204 44.3%, 0.305 46.5%, 0.411 48.5%, 0.644 52.5%, 0.733 54.3%, 0.812 56.1%, 0.895 58.3%, 0.966 60.6%, 1.023 62.9%, 1.069 65.3%, 1.103 67.8%, 1.116 69.1%, 1.126 70.5%, 1.133 71.9%, 1.137 73.3%, 1.138 74.8%, 1.136 76.3%, 1.127 78.9%, 1.111 81.7%, 1.091 84.5%, 1.04 91%, 1.018 94.2%, 1.005 97.2%, 1.001 98.6%, 1);
+  }
+.titlequote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.buttonimage {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  gap: 2rem;
+
+}
+button {
+    line-height: normal;
+    border: 2px solid var(--color-accent);
+    padding: 1rem;
+    background-color: blue;
+    color: white;
+    font-size: 1.5rem;
+    width: 10rem;
+    border-radius: 20px;
+}
+button:hover {
+    background-color: white;
+    color: blue;
+    transition: all 0.3s, color 0.3s;
+    border-radius: 30px;
+    scale: 1.05;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s linear(0, -0.001 1.4%, -0.005 2.9%, -0.02 6.1%, -0.042 9.3%, -0.107 17.7%, -0.123 20.2%, -0.132 22.4%, -0.138 24.9%, -0.135 27.3%, -0.126 29.5%, -0.108 31.7%, -0.092 33.1%, -0.074 34.4%, -0.025 37%, 0.037 39.5%, 0.116 42%, 0.204 44.3%, 0.305 46.5%, 0.411 48.5%, 0.644 52.5%, 0.733 54.3%, 0.812 56.1%, 0.895 58.3%, 0.966 60.6%, 1.023 62.9%, 1.069 65.3%, 1.103 67.8%, 1.116 69.1%, 1.126 70.5%, 1.133 71.9%, 1.137 73.3%, 1.138 74.8%, 1.136 76.3%, 1.127 78.9%, 1.111 81.7%, 1.091 84.5%, 1.04 91%, 1.018 94.2%, 1.005 97.2%, 1.001 98.6%, 1);
+  }
+</style>
