@@ -1,0 +1,38 @@
+---
+---
+<div id="rules-overlay" class="rc-overlay" aria-hidden="true">
+  <div class="rc-backdrop" data-overlay-backdrop></div>
+  <div class="rc-dialog" role="dialog" aria-modal="true" aria-labelledby="rules-title" tabindex="-1">
+    <button class="rc-close" data-overlay-close aria-label="Close rules">✕</button>
+    <h2 id="rules-title">How to play</h2>
+    <div class="rc-body">
+      <ol>
+        <li>Form pairs or a set of players as needed for the exercise.</li>
+        <li>Pick a constraint from the generator by clicking "Roll Again".</li>
+        <li>Discuss or act out solutions that respect the selected constraint.</li>
+        <li>Keep each round short (2–5 minutes) and rotate roles so everyone participates.</li>
+        <li>Be respectful: experiments are for learning — no harassment or unsafe actions.</li>
+      </ol>
+      <p>You can edit this text in <code>src/components/RulesOverlay.astro</code>.</p>
+    </div>
+    <div class="rc-footer">
+      <button class="rc-action" data-overlay-close>Close</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rc-overlay {position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999}
+  .rc-overlay.open{display:flex}
+  .rc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px)}
+  .rc-dialog{position:relative;background:var(--astro-body-bg,white);color:var(--astro-body-color,#111);max-width:720px;width:clamp(300px,80%,900px);max-height:80vh;overflow:auto;border-radius:12px;padding:1.5rem;box-shadow:0 10px 30px rgba(2,6,23,0.4);z-index:1}
+  .rc-close{position:absolute;right:0.5rem;top:0.5rem;border:0;background:transparent;font-size:1.25rem;padding:0.25rem;cursor:pointer}
+  .rc-body{margin-top:0.5rem;line-height:1.4}
+  .rc-footer{display:flex;justify-content:flex-end;margin-top:1rem}
+  .rc-action{border:2px solid var(--color-accent);padding:0.5rem 1rem;background:blue;color:white;border-radius:8px}
+  .rc-action:hover{background:white;color:blue}
+  @media (prefers-reduced-motion: no-preference){
+    .rc-dialog{transform:translateY(-6px);transition:transform .18s ease,opacity .18s ease}
+    .rc-overlay.open .rc-dialog{transform:none}
+  }
+</style>
