@@ -75,11 +75,16 @@ const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 <style>
 .randomquote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
   border: 2px solid var(--color-accent);
-  max-width: 30rem;
+  width: 30rem;
   color: blue;
   border-radius: 20px;
+  height: calc(671.336px - 134px - 2rem);
+
 
 }
 .randomquote:hover {
@@ -91,8 +96,8 @@ const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     border-radius: 30px;
   }
 .quote {
-  font-size: 3rem;
-  font-style: bold;
+  font-size: 2.5rem;
+  font-weight: 800;
   text-align: left;
   line-height: 1.2;
 }
