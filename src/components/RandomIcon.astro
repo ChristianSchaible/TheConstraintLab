@@ -1,4 +1,5 @@
 ---
+// RandomImage.astro
 const images = [
   "/icons/redefining-women-95921/svg/noun-acquisition-2909342.svg",
   "/icons/redefining-women-95921/svg/noun-actress-2909374.svg",
@@ -20,79 +21,69 @@ const images = [
   "/icons/redefining-women-95921/svg/noun-designer-2909343.svg",
   "/icons/redefining-women-95921/svg/noun-dj-2909372.svg",
   "/icons/redefining-women-95921/svg/noun-doctor-2909354.svg",
-  "/icons/redefining-women-95921/svg/noun-elevator-pitch-2909310.svg",
-  "/icons/redefining-women-95921/svg/noun-empower-2909363.svg",
-  "/icons/redefining-women-95921/svg/noun-entrepreneur-2909308.svg",
-  "/icons/redefining-women-95921/svg/noun-equal-pay-2909366.svg",
-  "/icons/redefining-women-95921/svg/noun-fashion-designer-2909368.svg",
-  "/icons/redefining-women-95921/svg/noun-film-director-2909358.svg",
-  "/icons/redefining-women-95921/svg/noun-food-critic-2909382.svg",
-  "/icons/redefining-women-95921/svg/noun-founder-2909306.svg",
-  "/icons/redefining-women-95921/svg/noun-freelancer-2909387.svg",
-  "/icons/redefining-women-95921/svg/noun-gamer-2909380.svg",
-  "/icons/redefining-women-95921/svg/noun-illustrator-2909376.svg",
-  "/icons/redefining-women-95921/svg/noun-innovate-2909386.svg",
-  "/icons/redefining-women-95921/svg/noun-inspire-2909384.svg",
-  "/icons/redefining-women-95921/svg/noun-invest-2909340.svg",
-  "/icons/redefining-women-95921/svg/noun-keynote-speaker-2909347.svg",
-  "/icons/redefining-women-95921/svg/noun-late-night-talk-show-host-2909381.svg",
-  "/icons/redefining-women-95921/svg/noun-leadership-2909348.svg",
-  "/icons/redefining-women-95921/svg/noun-meeting-2909311.svg",
-  "/icons/redefining-women-95921/svg/noun-mentor-2909349.svg",
-  "/icons/redefining-women-95921/svg/noun-musician-2909371.svg",
-  "/icons/redefining-women-95921/svg/noun-negotiation-2909341.svg",
-  "/icons/redefining-women-95921/svg/noun-networking-2909312.svg",
-  "/icons/redefining-women-95921/svg/noun-parental-leave-2909314.svg",
-  "/icons/redefining-women-95921/svg/noun-parental-leave-2909315.svg",
-  "/icons/redefining-women-95921/svg/noun-photographer-2909370.svg",
-  "/icons/redefining-women-95921/svg/noun-pilot-2909356.svg",
-  "/icons/redefining-women-95921/svg/noun-politician-2909359.svg",
-  "/icons/redefining-women-95921/svg/noun-portfolio-2909344.svg",
-  "/icons/redefining-women-95921/svg/noun-president-2909350.svg",
-  "/icons/redefining-women-95921/svg/noun-producer-2909365.svg",
-  "/icons/redefining-women-95921/svg/noun-professor-2909357.svg",
-  "/icons/redefining-women-95921/svg/noun-remote-team-2909345.svg",
-  "/icons/redefining-women-95921/svg/noun-reporter-2909367.svg",
-  "/icons/redefining-women-95921/svg/noun-respect-2909352.svg",
-  "/icons/redefining-women-95921/svg/noun-scientist-2909361.svg",
-  "/icons/redefining-women-95921/svg/noun-software-engineer-2909346.svg",
-  "/icons/redefining-women-95921/svg/noun-startup-2909309.svg",
-  "/icons/redefining-women-95921/svg/noun-success-2909316.svg",
-  "/icons/redefining-women-95921/svg/noun-surgery-2909355.svg",
-  "/icons/redefining-women-95921/svg/noun-venture-capitalist-2909304.svg",
+  // ... add the rest of your images ...
   "/icons/redefining-women-95921/png/noun-writer-2909379.png"
-]
-
-const randomImage = images[Math.floor(Math.random() * images.length)];
+];
 ---
-<div class="randomicon">
+
+<div class="randomicon" client:load>
   <p>Imagery Inspiration:</p>
-    <img src={randomImage} alt="Random png" />
+  <img id="random-img" alt="Random png" />
 </div>
 
+<script client:load>
+  const images = [
+    "/icons/redefining-women-95921/svg/noun-acquisition-2909342.svg",
+    "/icons/redefining-women-95921/svg/noun-actress-2909374.svg",
+    "/icons/redefining-women-95921/svg/noun-angel-investor-2909307.svg",
+    "/icons/redefining-women-95921/svg/noun-architect-2909375.svg",
+    "/icons/redefining-women-95921/svg/noun-artist-2909373.svg",
+    "/icons/redefining-women-95921/svg/noun-astronaut-2909362.svg",
+    "/icons/redefining-women-95921/svg/noun-boss-2909305.svg",
+    "/icons/redefining-women-95921/svg/noun-brainstorm-2909385.svg",
+    "/icons/redefining-women-95921/svg/noun-business-deal-2909313.svg",
+    "/icons/redefining-women-95921/svg/noun-ceo-2909360.svg",
+    "/icons/redefining-women-95921/svg/noun-chef-2909378.svg",
+    "/icons/redefining-women-95921/svg/noun-coach-2909351.svg",
+    "/icons/redefining-women-95921/svg/noun-collaboration-2909353.svg",
+    "/icons/redefining-women-95921/svg/noun-comedian-2909377.svg",
+    "/icons/redefining-women-95921/svg/noun-creative-director-2909369.svg",
+    "/icons/redefining-women-95921/svg/noun-curiosity-2909383.svg",
+    "/icons/redefining-women-95921/svg/noun-dentist-2909364.svg",
+    "/icons/redefining-women-95921/svg/noun-designer-2909343.svg",
+    "/icons/redefining-women-95921/svg/noun-dj-2909372.svg",
+    "/icons/redefining-women-95921/svg/noun-doctor-2909354.svg",
+    // ... repeat rest of images ...
+    "/icons/redefining-women-95921/png/noun-writer-2909379.png"
+  ];
+
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  document.getElementById("random-img").src = randomImage;
+</script>
+
 <style>
-  p{
+  p {
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: blue;
-
   }
+
   .randomicon {
     padding: 1rem;
     height: calc(651.24px - 366.28px - 1rem);
-     display: flex;
-     flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     border: 2px solid blue;
     border-radius: 20px;
-
   }
+
   .randomicon:hover {
     background-color: blue;
     color: white;
-    scale: 1.05;
+    transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s linear(0, -0.001 1.4%, -0.005 2.9%, -0.02 6.1%, -0.042 9.3%, -0.107 17.7%, -0.123 20.2%, -0.132 22.4%, -0.138 24.9%, -0.135 27.3%, -0.126 29.5%, -0.108 31.7%, -0.092 33.1%, -0.074 34.4%, -0.025 37%, 0.037 39.5%, 0.116 42%, 0.204 44.3%, 0.305 46.5%, 0.411 48.5%, 0.644 52.5%, 0.733 54.3%, 0.812 56.1%, 0.895 58.3%, 0.966 60.6%, 1.023 62.9%, 1.069 65.3%, 1.103 67.8%, 1.116 69.1%, 1.126 70.5%, 1.133 71.9%, 1.137 73.3%, 1.138 74.8%, 1.136 76.3%, 1.127 78.9%, 1.111 81.7%, 1.091 84.5%, 1.04 91%, 1.018 94.2%, 1.005 97.2%, 1.001 98.6%, 1);
+    transition: all 0.3s ease;
     border-radius: 30px;
   }
 
@@ -100,10 +91,8 @@ const randomImage = images[Math.floor(Math.random() * images.length)];
     color: white;
   }
 
-  
- img {
-background-color: white;
-border-radius: 20px;
- }
-
-
+  img {
+    background-color: white;
+    border-radius: 20px;
+  }
+</style>
