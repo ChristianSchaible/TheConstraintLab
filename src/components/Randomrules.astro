@@ -63,19 +63,11 @@ const quotes = [
 ];
 ---
 
-<div class="randomquote" id="quote-box">
+<div class="randomquote">
   <p class="r">Main Text:</p>
-  <p class="quote"></p>
-  <p class="author"></p>
+  <p class="quote">{quotes[Math.floor(Math.random() * quotes.length)].text}</p>
+  <p class="author">— {quotes[Math.floor(Math.random() * quotes.length)].author}</p>
 </div>
-
-<script client:load>
-  const quotes = JSON.parse(`<?="${JSON.stringify(quotes)}"?>`);
-  const q = quotes[Math.floor(Math.random() * quotes.length)];
-
-  document.querySelector("#quote-box .quote").textContent = `"${q.text}"`;
-  document.querySelector("#quote-box .author").textContent = "— " + q.author;
-</script>
 
 <style>
 .randomquote {
