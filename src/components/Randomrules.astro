@@ -62,12 +62,81 @@ const quotes = [
   { author: "Nikki Hirschkind", text: "I likely think the design is a lot worse than it is." }
 ];
 ---
-
-<div class="randomquote">
+<div class="randomquote" client:load>
   <p class="r">Main Text:</p>
-  <p class="quote">{quotes[Math.floor(Math.random() * quotes.length)].text}</p>
-  <p class="author">— {quotes[Math.floor(Math.random() * quotes.length)].author}</p>
+  <p class="quote" id="quote-text"></p>
+  <p class="author" id="quote-author"></p>
 </div>
+
+<script client:load>
+  const quotes = [
+   { author: "Christian Schaible", text: "Don’t take it seriously." },
+  { author: "Christian Schaible", text: "Fake it till you make it baby!" },
+  { author: "Christian Schaible", text: "Don’t try to be someone else" },
+
+  { author: "Noah Ortiz", text: "Put something down, no matter how bad." },
+  { author: "Noah Ortiz", text: "Sit on a design to see how you feel." },
+  { author: "Noah Ortiz", text: "Gather inspiration from different places" },
+  { author: "Noah Ortiz", text: "Make something you find fun." },
+  { author: "Noah Ortiz", text: "Don’t be scared to try something outside your comfort zone." },
+
+  { author: "Bryce Walsh", text: "Make small things: smaller pieces and projects can inspire and change bigger ones without all the pressure." },
+  { author: "Bryce Walsh", text: "A sketch is a sketch, don’t be so delicate when sketching; it’s a way to get your ideas out so feel free to mess it up." },
+
+  { author: "Maddie Hickey", text: "FUCK AROUND N' FIND OUT!" },
+  { author: "Maddie Hickey", text: "Just go for it, work as if you're under pressure." },
+  { author: "Maddie Hickey", text: "Take risks." },
+  { author: "Maddie Hickey", text: "YOLO" },
+
+  { author: "Jazmin Corrujedo", text: "Design with empathy." },
+  { author: "Jazmin Corrujedo", text: "Does it turn heads?" },
+
+  { author: "Molly Vanderbogart", text: "Don’t be afraid to start over." },
+  { author: "Molly Vanderbogart", text: "Have a plan!" },
+  { author: "Molly Vanderbogart", text: "Try a new feature." },
+  { author: "Molly Vanderbogart", text: "Put your soul into it." },
+
+  { author: "Hayley Rocker", text: "Have a vision in your mind." },
+  { author: "Hayley Rocker", text: "Try to recreate your creative vision as best as you can." },
+
+  { author: "Daneisha Espinosa", text: "Write out the jumbled mess of ideas." },
+  { author: "Daneisha Espinosa", text: "Will it please other people?" },
+
+  { author: "Ginger Defino", text: "Create as much as you can before judging it as good or bad. You need to start somewhere." },
+  { author: "Ginger Defino", text: "Create something different." },
+
+  { author: "Christian Vitale", text: "Don’t focus on just one idea right at the start; explore many options and ideations." },
+  { author: "Christian Vitale", text: "Don’t force creativity; when it’s not working, take a step back and see the bigger picture." },
+
+  { author: "Madison Tamburrini", text: "Don’t think, just do." },
+  { author: "Madison Tamburrini", text: "It has to be perfect." },
+
+  { author: "Elysia Shannon", text: "Always ask questions." },
+  { author: "Elysia Shannon", text: "Look for inspiration before you start a project." },
+  { author: "Elysia Shannon", text: "Think outside the box." },
+  { author: "Elysia Shannon", text: "It’s okay if you don’t like your first idea." },
+  { author: "Elysia Shannon", text: "Research ideas throughout." },
+
+  { author: "Sarah Friedlander", text: "Just get ideas out of your head and onto paper." },
+  { author: "Sarah Friedlander", text: "Avoid perfection on the first try." },
+  { author: "Sarah Friedlander", text: "Start on paper first, then move to the computer." },
+
+  { author: "Nicky Thomas", text: "Making > thinking about making" },
+  { author: "Nicky Thomas", text: "Don’t be a perfectionist about each and every detail." },
+  { author: "Nicky Thomas", text: "Be open to new styles." },
+
+  { author: "Faith Wilson", text: "Make sure to take a step back / a breather from your work to look at it with fresh eyes." },
+  { author: "Faith Wilson", text: "I can't move onto another idea until this one is 'perfect'." },
+
+  { author: "Nikki Hirschkind", text: "Find inspiration before approaching any project." },
+  { author: "Nikki Hirschkind", text: "I likely think the design is a lot worse than it is." }
+  ];
+
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  document.getElementById("quote-text").textContent = `"${randomQuote.text}"`;
+  document.getElementById("quote-author").textContent = `— ${randomQuote.author}`;
+</script>
 
 <style>
 .randomquote {
