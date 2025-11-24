@@ -1,18 +1,15 @@
 ---
 ---
 <script>
-  // Palette of 5 colors that share the same saturation as #0000FF (100%)
-  // hues chosen around the blue region so accents remain visually cohesive
-  const PALETTE = [
-    'hsl(200 100% 50%)',
-    'hsl(220 100% 50%)',
-    'hsl(240 100% 50%)',
-    'hsl(260 100% 50%)',
-    'hsl(280 100% 50%)'
-  ];
+  // Generate a random accent color with good contrast
+  function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
   function randomAccent() {
-    return PALETTE[Math.floor(Math.random() * PALETTE.length)];
+    // Prefer saturated but not too bright HSL so controls look good
+    const h = randInt(0, 360);
+    const s = randInt(60, 85);
+    const l = randInt(40, 55);
+    return `hsl(${h} ${s}% ${l}%)`;
   }
 
   // Apply color to document root and return value
@@ -24,25 +21,11 @@
   // Initialize
   let current = null;
   function init() {
-    // Try to restore from localStorage if present
-    try {
-      const saved = localStorage.getItem('site-accent');
-      current = saved || randomAccent();
-    } catch (e) {
-      current = randomAccent();
-    }
-    applyAccent(current);
-
-    // attach UI handler
-    const btn = document.querySelector('.accent-btn');
-    if (btn) btn.addEventListener('click', () => {
-      regen();
-    });
+    current = applyAccent(randomAccent());
   }
 
   function regen() {
     current = applyAccent(randomAccent());
-    try { localStorage.setItem('site-accent', current); } catch (e) {}
   }
 
   // expose for console/testing
@@ -66,7 +49,8 @@
   }
   .randomicon {
     padding: 1rem;
-    max-width: 25rem;
+    min-width: 20rem;
+  height: calc(651.24px - 366.28px - 1rem);
      display: flex;
      flex-direction: column;
     justify-content: center;
@@ -81,15 +65,16 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     border-radius: 30px;
+    ;
   }
 
   .randomicon:hover p {
     color: white;
   }
 
-  .swatch { width:28px; height:28px; border-radius:6px; border:2px solid rgba(0,0,0,0.05); background:var(--color-accent); box-shadow:0 2px 6px rgba(0,0,0,0.08) }
+  .swatch { width:400px; height:200px; border-radius:30px; border:2px solid rgba(0,0,0,0.05); background:var(--color-accent);}
 
-  .accent-btn { padding:0.4rem 0.7rem; border-radius:8px; border:2px solid var(--color-accent); background:transparent; color:var(--color-accent); cursor:pointer }
+  .accent-btn { padding:0.4rem 0.7rem; border-radius:8px;); background:transparent; color:var(--color-accent); cursor:pointer }
   .accent-btn:hover { background:var(--color-accent); color:var(--astro-body-bg,white) }
 </style>
 

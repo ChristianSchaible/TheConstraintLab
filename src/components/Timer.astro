@@ -61,15 +61,15 @@
     display.textContent = formatTime(remaining);
     if (running) {
       container.classList.add('running');
-      status.textContent = 'Running';
+      status.textContent = '';
       container.setAttribute('aria-pressed', 'true');
     } else if (remaining === 0) {
       container.classList.remove('running');
-      status.textContent = 'Done';
+      status.textContent = '';
       container.setAttribute('aria-pressed', 'false');
     } else {
       container.classList.remove('running');
-      status.textContent = 'Click to start';
+      status.textContent =   '';
       container.setAttribute('aria-pressed', 'false');
     }
   }
