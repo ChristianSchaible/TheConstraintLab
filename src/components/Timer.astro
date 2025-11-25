@@ -1,44 +1,38 @@
 ---
 ---
 
-<div id="timer-container" class="timer" role="button" tabindex="0" aria-pressed="false" aria-label="15 minute timer. Click to start. Double-click to reset.">
+<div id="timer-container" class="timer" role="button" tabindex="0" aria-pressed="false" aria-label="15 minute timer. Click to start or pause. Double-click to reset.">
   <div id="timer-display" class="time" aria-live="polite">15:00</div>
   <div id="timer-status" class="status">Click to start</div>
 </div>
 
 <style>
   .timer {
-    padding: 1rem;
-    width: 100%;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
-    border: 2px solid #0ea5e9;
-    border-radius: 20px;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--color-accent, #0ea5e9);
+    border-radius: 12px;
+    width: 12rem;
     cursor: pointer;
     user-select: none;
     background: white;
   }
-  .timer:focus { outline: 3px solid rgba(14,165,233,0.18); }
+  .timer:focus { outline: 3px solid rgba(14,165,233,0.25); }
   .time {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     letter-spacing: 0.02em;
   }
   .status {
-    font-size: 0.9rem;
-    color: #2563eb;
+    font-size: 0.85rem;
+    color: #666;
   }
-  .timer.running { background: #0ea5e9; color: white; }
-  .timer:hover {
-    background-color: #0ea5e9;
-    color: white;
-    transform: scale(1.02);
-    transition: background-color 0.18s ease, transform 0.18s ease;
-    border-radius: 20px;
-  }
+  .timer.running { background: var(--color-accent) color: white; }
+  .timer.paused { background:var(--color-accent); color: white; }
 </style>
 
 <script type="module">
@@ -49,7 +43,7 @@
 
   let remaining = DURATION;
   let intervalId = null;
-  let running = false; // true once started
+  let running = false;
 
   function formatTime(s) {
     const m = Math.floor(s / 60).toString().padStart(2, '0');
@@ -61,15 +55,23 @@
     display.textContent = formatTime(remaining);
     if (running) {
       container.classList.add('running');
-      status.textContent = '';
+      container.classList.remove('paused');
+      status.textContent = 'Running';
       container.setAttribute('aria-pressed', 'true');
+    } else if (remaining !== DURATION && remaining !== 0) {
+      container.classList.add('paused');
+      container.classList.remove('running');
+      status.textContent = 'Paused';
+      container.setAttribute('aria-pressed', 'false');
     } else if (remaining === 0) {
       container.classList.remove('running');
-      status.textContent = '';
+      container.classList.remove('paused');
+      status.textContent = 'Done';
       container.setAttribute('aria-pressed', 'false');
     } else {
       container.classList.remove('running');
-      status.textContent =   '';
+      container.classList.remove('paused');
+      status.textContent = 'Click to start';
       container.setAttribute('aria-pressed', 'false');
     }
   }
@@ -88,11 +90,26 @@
   }
 
   function start() {
-    if (running) return; // start only once until reset
+    if (running) return;
     if (remaining <= 0) remaining = DURATION;
     running = true;
     updateUI();
+    // align tick to next full second for better accuracy
     intervalId = setInterval(tick, 1000);
+  }
+
+  function pause() {
+    if (!running) return;
+    running = false;
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+    updateUI();
+  }
+
+  function toggle() {
+    if (running) pause(); else start();
   }
 
   function reset() {
@@ -103,7 +120,7 @@
 
   // Click toggles start/pause; double-click resets
   container.addEventListener('click', (e) => {
-    start();
+    toggle();
   });
   container.addEventListener('dblclick', (e) => {
     reset();
@@ -113,7 +130,7 @@
   container.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
-      start();
+      toggle();
     } else if (e.key.toLowerCase() === 'r') {
       reset();
     }
