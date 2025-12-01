@@ -15,15 +15,25 @@ import AccentColor from "@components/AccentColor.astro";
 
 <Layout title="The New Paltz Constraint Lab">
   <div class="page">
-    <div class="titlequote">
-      <h1 class="np"><span class="star">*</span>The New Paltz <strong>Constraint Lab.</strong></h1> 
+    <div class="content">
+<div class="titlequote">
+      <div class="np">
+        <h1><span class="star">*</span>The New Paltz <strong>Constraint Lab.</strong></h1> 
+        <p>Your creative poster-making challenge!</p>
+      </div>
+      
        <div class="buttonimage">
+    
 
    <RandomImage />
  <AccentColor />
 
  </div>
-     
+<div class="rerolltimer">
+  
+</div>
+     <button class="reroll-btn" onclick="location.reload()">Reroll</button>
+     <Timer />
     </div>
   <div class="imagecomp">
     <RandomComp />
@@ -31,11 +41,14 @@ import AccentColor from "@components/AccentColor.astro";
 
    
     </div>
+
+    </div>
+    
     <div class="footer">
       <div class="tr-left">
-        <Timer />
+        
          <button id="rules-open-btn">Rules</button>
-        <button onclick="location.reload()">Reroll</button>
+        
       </div>
        
       <div class="tr-right">
@@ -79,16 +92,25 @@ import AccentColor from "@components/AccentColor.astro";
    width: fit-content;
     align-items: center;
   }
-
+.reroll-btn {
+padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
   .footer {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: .5rem;
     align-items: center;
     background-color: blue;
     width: 100%;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    height: 100px;
   }
 
   .buttonimage {
@@ -98,6 +120,7 @@ import AccentColor from "@components/AccentColor.astro";
     height: fit-content;
     max-width: 30rem;
     width: 100%;
+    gap:.5rem;
     align-items: flex-start;
   }
 
@@ -105,36 +128,52 @@ import AccentColor from "@components/AccentColor.astro";
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-direction: column;
   }
-
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+  }
   .page {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    flex-direction: row;
+    width: 100vw;
+    align-items:space-between;
     justify-content: center;
+    height: 100vh;
     gap: 1rem;
     margin:0;
     margin-top: 1.5rem;
     transition: all 0.25s ease;
   }
 
-  h1 {
+  .np {
     line-height: .9;
     background-color: blue;
     color: white;
     border: 2px solid var(--color-accent);
     padding: 1rem;
     border-radius: 20px;
-    font-size: clamp(2rem, 6vw, 5rem);
+    font-size:2rem;
     max-width: 30rem;
     width: 100%;
     height: fit-content;
     transition: all 0.2s ease;
   }
+  .np p {
+    margin: 0;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: normal;
+    margin-top: 1rem;
+  }
 
-  h1:hover {
+ .np:hover {
     background-color: white;
     color: blue;
     border-radius: 30px;
@@ -146,7 +185,7 @@ import AccentColor from "@components/AccentColor.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: .2rem;
   }
 
   button {
