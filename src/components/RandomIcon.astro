@@ -1,6 +1,14 @@
 ---
-// RandomImage.astro
-const images = [
+---
+
+<div class="randomicon" client:load>
+  <p>Imagery Inspiration:</p>
+  <img id="random-img" alt="Random png" />
+</div>
+
+<script client:load>
+  const images = [
+  // --- existing redefining-women icons ---
   "/icons/redefining-women-95921/svg/noun-acquisition-2909342.svg",
   "/icons/redefining-women-95921/svg/noun-actress-2909374.svg",
   "/icons/redefining-women-95921/svg/noun-angel-investor-2909307.svg",
@@ -21,41 +29,57 @@ const images = [
   "/icons/redefining-women-95921/svg/noun-designer-2909343.svg",
   "/icons/redefining-women-95921/svg/noun-dj-2909372.svg",
   "/icons/redefining-women-95921/svg/noun-doctor-2909354.svg",
-  // ... add the rest of your images ...
   "/icons/redefining-women-95921/png/noun-writer-2909379.png",
+
+  // --- innovation-63247 ---
+  "/icons/innovation-63247/svg/noun-active-learning-27461.svg",
+  "/icons/innovation-63247/svg/noun-asynchronous-learning-27462.svg",
+  "/icons/innovation-63247/svg/noun-blended-learning-27463.svg",
+  "/icons/innovation-63247/svg/noun-collaborative-learning-27467.svg",
+  "/icons/innovation-63247/svg/noun-competency-based-assessment-27464.svg",
+  "/icons/innovation-63247/svg/noun-connected-learning-27465.svg",
+  "/icons/innovation-63247/svg/noun-crowdsourcing-27466.svg",
+  "/icons/innovation-63247/svg/noun-flexible-learning-space-27468.svg",
+  "/icons/innovation-63247/svg/noun-flipped-classroom-27469.svg",
+  "/icons/innovation-63247/svg/noun-games-for-learning-27470.svg",
+  "/icons/innovation-63247/svg/noun-informal-learning-27471.svg",
+  "/icons/innovation-63247/svg/noun-knowledge-transfer-27472.svg",
+  "/icons/innovation-63247/svg/noun-learning-analytics-27473.svg",
+  "/icons/innovation-63247/svg/noun-learning-pathways-27474.svg",
+  "/icons/innovation-63247/svg/noun-microlecture-27475.svg",
+  "/icons/innovation-63247/svg/noun-mooc-27476.svg",
+  "/icons/innovation-63247/svg/noun-open-access-27477.svg",
+  "/icons/innovation-63247/svg/noun-peer-evaluation-27478.svg",
+  "/icons/innovation-63247/svg/noun-problem-based-learning-27479.svg",
+  "/icons/innovation-63247/svg/noun-social-content-curation-27480.svg",
+  "/icons/innovation-63247/svg/noun-synchronous-learning-27481.svg",
+  "/icons/innovation-63247/svg/noun-wearable-technology-27482.svg",
+
+  // --- neighborhoods-1582 ---
+  "/icons/neighborhoods-1582/svg/noun-car-share-6442.svg",
+  "/icons/neighborhoods-1582/svg/noun-community-garden-6396.svg",
+  "/icons/neighborhoods-1582/svg/noun-coworking-space-6322.svg",
+  "/icons/neighborhoods-1582/svg/noun-dog-park-6323.svg",
+  "/icons/neighborhoods-1582/svg/noun-hackathon-6324.svg",
+  "/icons/neighborhoods-1582/svg/noun-neighbor-6325.svg",
+  "/icons/neighborhoods-1582/svg/noun-public-health-clinic-6435.svg",
+  "/icons/neighborhoods-1582/svg/noun-shelter-for-families-6443.svg",
+  "/icons/neighborhoods-1582/svg/noun-skate-park-6326.svg",
+  "/icons/neighborhoods-1582/svg/noun-swimming-pool-6327.svg",
+
+  // --- education-1576 ---
+  "/icons/education-1576/svg/noun-bully-738.svg",
+  "/icons/education-1576/svg/noun-cafeteria-732.svg",
+  "/icons/education-1576/svg/noun-childrens-library-739.svg",
+  "/icons/education-1576/svg/noun-gymnasium-736.svg",
+  "/icons/education-1576/svg/noun-locker-room-733.svg",
+  "/icons/education-1576/svg/noun-main-office-737.svg",
+  "/icons/education-1576/svg/noun-playground-734.svg",
+  "/icons/education-1576/svg/noun-report-card-729.svg",
+  "/icons/education-1576/svg/noun-school-bus-stop-731.svg",
+  "/icons/education-1576/svg/noun-school-counselor-730.svg",
+  "/icons/education-1576/svg/noun-student-pick-up-area-735.svg",
 ];
----
-
-<div class="randomicon" client:load>
-  <p>Imagery Inspiration:</p>
-  <img id="random-img" alt="Random png" />
-</div>
-
-<script client:load>
-  const images = [
-    "/icons/redefining-women-95921/svg/noun-acquisition-2909342.svg",
-    "/icons/redefining-women-95921/svg/noun-actress-2909374.svg",
-    "/icons/redefining-women-95921/svg/noun-angel-investor-2909307.svg",
-    "/icons/redefining-women-95921/svg/noun-architect-2909375.svg",
-    "/icons/redefining-women-95921/svg/noun-artist-2909373.svg",
-    "/icons/redefining-women-95921/svg/noun-astronaut-2909362.svg",
-    "/icons/redefining-women-95921/svg/noun-boss-2909305.svg",
-    "/icons/redefining-women-95921/svg/noun-brainstorm-2909385.svg",
-    "/icons/redefining-women-95921/svg/noun-business-deal-2909313.svg",
-    "/icons/redefining-women-95921/svg/noun-ceo-2909360.svg",
-    "/icons/redefining-women-95921/svg/noun-chef-2909378.svg",
-    "/icons/redefining-women-95921/svg/noun-coach-2909351.svg",
-    "/icons/redefining-women-95921/svg/noun-collaboration-2909353.svg",
-    "/icons/redefining-women-95921/svg/noun-comedian-2909377.svg",
-    "/icons/redefining-women-95921/svg/noun-creative-director-2909369.svg",
-    "/icons/redefining-women-95921/svg/noun-curiosity-2909383.svg",
-    "/icons/redefining-women-95921/svg/noun-dentist-2909364.svg",
-    "/icons/redefining-women-95921/svg/noun-designer-2909343.svg",
-    "/icons/redefining-women-95921/svg/noun-dj-2909372.svg",
-    "/icons/redefining-women-95921/svg/noun-doctor-2909354.svg",
-    // ... repeat rest of images ...
-    "/icons/redefining-women-95921/png/noun-writer-2909379.png",
-  ];
 
   const randomImage = images[Math.floor(Math.random() * images.length)];
   document.getElementById("random-img").src = randomImage;
@@ -93,6 +117,6 @@ const images = [
 
   img {
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 </style>
