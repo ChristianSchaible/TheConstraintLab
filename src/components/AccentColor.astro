@@ -1,18 +1,22 @@
 ---
 ---
 <script>
-  // Generate a random accent color with good contrast
-  function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+  // Your fixed palette:
+  const ACCENT_PALETTE = [
+    "#00134f",
+    "#398aff",
+    "#1500ad",
+    "#99c3ff",
+    "#d9e4ff",
+    "#0068ff"
+  ];
 
+  // Pick one color from the palette
   function randomAccent() {
-    // Prefer saturated but not too bright HSL so controls look good
-    const h = randInt(0, 360);
-    const s = randInt(60, 85);
-    const l = randInt(40, 55);
-    return `hsl(${h} ${s}% ${l}%)`;
+    return ACCENT_PALETTE[Math.floor(Math.random() * ACCENT_PALETTE.length)];
   }
 
-  // Apply color to document root and return value
+  // Apply color to CSS variable
   function applyAccent(color) {
     document.documentElement.style.setProperty('--color-accent', color);
     return color;

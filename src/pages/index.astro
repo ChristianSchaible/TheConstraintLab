@@ -11,6 +11,7 @@ import RandomComp from '../components/RandomComp.astro';
 import Timer from '../components/Timer.astro';
 import RulesOverlay from '@components/RulesOverlay.astro';
 import AccentColor from "@components/AccentColor.astro";
+import Chaos from "@components/Chaos.astro";
 ---
 
 <Layout title="The New Paltz Constraint Lab">
@@ -21,19 +22,19 @@ import AccentColor from "@components/AccentColor.astro";
         <h1><span class="star">*</span>The New Paltz <strong>Constraint Lab.</strong></h1> 
         <p>Your creative poster-making challenge!</p>
       </div>
-      
-       <div class="buttonimage">
+      <div class="leftbottom">
+   <div class="buttonimage">
+ <RandomImage/>
+ <AccentColor/>
+      </div>
     
-
-   <RandomImage />
- <AccentColor />
-
  </div>
+ 
 <div class="rerolltimer">
   
 </div>
      <button class="reroll-btn" onclick="location.reload()">Reroll</button>
-     <Timer />
+     <Timer/>
     </div>
   <div class="imagecomp">
     <RandomComp />
@@ -46,18 +47,15 @@ import AccentColor from "@components/AccentColor.astro";
     
     <div class="footer">
       <div class="tr-left">
-        
          <button id="rules-open-btn">Rules</button>
-        
+      </div>
+
+      <div class="middle">
+       <Chaos />
       </div>
        
       <div class="tr-right">
       <a class="submit" href="https://forms.office.com/r/png4kFiEH7">Submit</a>"
-      
-
-    
-
-
  </div>
  
   </div>

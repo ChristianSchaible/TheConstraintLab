@@ -1,74 +1,181 @@
 ---
+
 ---
+
 <div id="rules-overlay" class="rc-overlay open" aria-hidden="false">
   <div class="rc-backdrop" data-overlay-backdrop></div>
-  <div class="rc-dialog" role="dialog" aria-modal="true" aria-labelledby="rules-title" tabindex="-1">
-    <button class="rc-close" data-overlay-close aria-label="Close rules">✕</button>
+  <div
+    class="rc-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="rules-title"
+    tabindex="-1"
+  >
+    <button class="rc-close" data-overlay-close aria-label="Close rules"
+      >✕</button
+    >
     <h2 id="rules-title">Welcome to The New Paltz Constraint Lab!</h2>
-    <p>The Constraint Lab is a creative poster-making site where random user-generated prompts, icons, compositions, and colors inspire your design. It's basically a constant cycle of user-generated work!</p>
+    <p>
+      The Constraint Lab is a creative poster-making site where random
+      user-generated prompts, icons, compositions, and colors inspire your
+      design. It's basically a constant cycle of user-generated work!
+    </p>
 
     <div class="rc-body">
       <h3>How to play:</h3>
       <ol>
-        <li><strong>Work for 15 minutes.</strong> Start the timer and create your poster within this limit.</li>
-  <li><strong>Use inspiration, not imitation.</strong> Let the random icon spark ideas, and incorporate the accent color, but don’t copy the imagery directly.</li>
-  <li><strong>Experiment with randomness.</strong> Try different compositions, layouts, and arrangements—embrace the unexpected!</li>
-  <li><strong>Make the main text dominant.</strong> Your quote or key message should be the largest text on the poster.</li>
-  <li><strong>Use the template and submit.</strong> Start with the provided Adobe Illustrator file, and upload a high-quality image of your poster using the submit button.</li>
+        <li>
+          <strong>Work for 15 minutes.</strong> Start the timer and create your poster
+          within this limit.
+        </li>
+        <li>
+          <strong>Use inspiration, not imitation.</strong> Let the random icon spark
+          ideas, and incorporate the accent color, but don’t copy the imagery directly.
+        </li>
+        <li>
+          <strong>Experiment with randomness.</strong> Try different compositions,
+          layouts, and arrangements—embrace the unexpected!
+        </li>
+        <li>
+          <strong>Make the main text dominant.</strong> Your quote or key message
+          should be the largest text on the poster.
+        </li>
+        <li>
+          <strong>Use the template and submit.</strong> Start with the provided Adobe
+          Illustrator file, and upload a high-quality image of your poster using
+          the submit button.
+        </li>
       </ol>
-    <div class="rc-footer">
-      <a class="rc-action download-btn" href="/TheConstraintLabTemplate.ai" download>
-        Download Template
-      </a>
-      <button class="rc-action" data-overlay-close>Close</button>
+      <div class="rc-footer">
+        <a
+          class="rc-action download-btn"
+          href="/TheConstraintLabTemplate.ai"
+          download
+        >
+          Download Template
+        </a>
+        <button class="rc-action" data-overlay-close>Close</button>
+      </div>
     </div>
   </div>
-</div>
 
-<style>
-  .rc-overlay {position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999}
-  .rc-overlay.open{display:flex}
-  .rc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px)}
-  .rc-dialog{position:relative;background:var(--astro-body-bg,white);color:var(--astro-body-color,#111);max-width:720px;width:clamp(300px,80%,900px);max-height:80vh;overflow:auto;border-radius:12px;padding:1.5rem;box-shadow:0 10px 30px rgba(2,6,23,0.4);z-index:1}
-  .rc-close{position:absolute;right:0.5rem;top:0.5rem;border:0;background:transparent;font-size:1.25rem;padding:0.25rem;cursor:pointer}
-  .rc-body{margin-top:0.5rem;line-height:1.4}
-  .rc-footer{display:flex;justify-content:space-between;margin-top:1rem}
-  .rc-action{border:2px solid var(--color-accent);padding:0.5rem 1rem;background:blue;color:white;border-radius:8px}
-  .rc-action:hover{background:white;color:blue}
-  @media (prefers-reduced-motion: no-preference){
-    .rc-dialog{transform:translateY(-6px);transition:transform .18s ease,opacity .18s ease}
-    .rc-overlay.open .rc-dialog{transform:none}
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('rules-overlay');
-    if (!overlay) return;
-    const closeButtons = overlay.querySelectorAll('[data-overlay-close]');
-    const backdrop = overlay.querySelector('[data-overlay-backdrop]');
-    let previouslyFocused = null;
-
-    function close() {
-      overlay.classList.remove('open');
-      overlay.setAttribute('aria-hidden', 'true');
-      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+  <style>
+    .rc-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
     }
-
-    function onKeyDown(e) {
-      if (e.key === 'Escape') return close();
-      if (e.key === 'Tab') {
-        const focusable = Array.from(overlay.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),textarea:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])'));
-        if (focusable.length === 0) { e.preventDefault(); return; }
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    .rc-overlay.open {
+      display: flex;
+    }
+    .rc-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
+    }
+    .rc-dialog {
+      position: relative;
+      background: var(--astro-body-bg, white);
+      color: var(--astro-body-color, #111);
+      max-width: 720px;
+      width: clamp(300px, 80%, 900px);
+      max-height: 80vh;
+      overflow: auto;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.4);
+      z-index: 1;
+    }
+    .rc-close {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      border: 0;
+      background: transparent;
+      font-size: 1.25rem;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+    .rc-body {
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    .rc-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .rc-action {
+      border: 2px solid var(--color-accent);
+      padding: 0.5rem 1rem;
+      background: blue;
+      color: white;
+      border-radius: 8px;
+    }
+    .rc-action:hover {
+      background: white;
+      color: blue;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .rc-dialog {
+        transform: translateY(-6px);
+        transition:
+          transform 0.18s ease,
+          opacity 0.18s ease;
+      }
+      .rc-overlay.open .rc-dialog {
+        transform: none;
       }
     }
+  </style>
 
-    closeButtons.forEach(b => b.addEventListener('click', close));
-    if (backdrop) backdrop.addEventListener('click', close);
-    overlay.addEventListener('keydown', onKeyDown);
-  });
-</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("rules-overlay");
+      if (!overlay) return;
+      const closeButtons = overlay.querySelectorAll("[data-overlay-close]");
+      const backdrop = overlay.querySelector("[data-overlay-backdrop]");
+      let previouslyFocused = null;
+
+      function close() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+        if (previouslyFocused && previouslyFocused.focus)
+          previouslyFocused.focus();
+      }
+
+      function onKeyDown(e) {
+        if (e.key === "Escape") return close();
+        if (e.key === "Tab") {
+          const focusable = Array.from(
+            overlay.querySelectorAll(
+              'a[href],button:not([disabled]),input:not([disabled]),textarea:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])'
+            )
+          );
+          if (focusable.length === 0) {
+            e.preventDefault();
+            return;
+          }
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        }
+      }
+
+      closeButtons.forEach((b) => b.addEventListener("click", close));
+      if (backdrop) backdrop.addEventListener("click", close);
+      overlay.addEventListener("keydown", onKeyDown);
+    });
+  </script>
+</div>
